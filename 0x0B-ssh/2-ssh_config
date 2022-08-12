@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Configure your ssh file so that it uses the private key:
+IdentityFile ~/.ssh/school
+
+# configure your ssh config so that it refuses to authenticate via password:
+PasswordAuthentication no
