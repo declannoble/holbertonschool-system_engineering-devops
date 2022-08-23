@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install haproxy
+
+configurations="
+frontend haProxy
+    bind *:80
+    mode http
+
+    default_backend haProxyBackend 
+
+backend haProxyBackend
+    balance roundrobin
+    mode http 
+    server 4364-web-01 54.90.249.226:80
+    server 4364-web-02 54.211.125.140:80
+"
+sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
+sudo service haproxy start
