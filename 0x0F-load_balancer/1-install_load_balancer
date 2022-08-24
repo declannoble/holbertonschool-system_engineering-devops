@@ -4,6 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install haproxy=2.0.*
 sudo apt-get -y install rsyslog
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
 
 configurations="
