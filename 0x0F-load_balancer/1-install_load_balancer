@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 # script to install loadbalancer with provided configurations
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install haproxy=2.0.*
-sudo apt-get -y install rsyslog
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
-sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
+
 
 configurations="
 frontend haProxy
@@ -20,5 +15,10 @@ backend haProxyBackend
     server 4364-web-01 54.90.249.226:80 check
     server 4364-web-02 54.211.125.140:80 check
 "
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy=2.0.*
+sudo apt-get -y install rsyslog
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
 sudo service haproxy start
