@@ -10,6 +10,7 @@ configurations="
 frontend haProxy
     bind *:80
     mode http
+    default back_end haproxyBackend
     
 backend haProxyBackend
     balance roundrobin
