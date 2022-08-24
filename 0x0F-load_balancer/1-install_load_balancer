@@ -15,9 +15,9 @@ backend haProxyBackend
     server 4364-web-01 54.90.249.226:80 check
     server 4364-web-02 54.211.125.140:80 check
 "
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y haproxy
-echo "ENABLED=1" >> /etc/default/haproxy
-sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
+printf "%s" "$configurations" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy start
