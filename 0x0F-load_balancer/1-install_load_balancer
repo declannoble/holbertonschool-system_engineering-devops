@@ -17,6 +17,8 @@ backend haProxyBackend
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install haproxy
+sudo apt-get -y install rsyslog
 sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
 printf "%s" "$configurations" >> /etc/haproxy/haproxy.cfg
+sudo service rsyslog start
 sudo service haproxy start
