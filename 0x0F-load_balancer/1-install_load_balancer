@@ -18,4 +18,5 @@ backend haProxyBackend
     server 4364-web-01 54.90.249.226:80
     server 4364-web-02 54.211.125.140:80
 "
+sudo sh -c "printf '%s' '$configurations' >> /etc/haproxy/haproxy.cfg"
 sudo service haproxy start
