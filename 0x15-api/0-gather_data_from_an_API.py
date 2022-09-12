@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""script to query an api and return information"""
 
-from urllib import request
+
+import requests
+from sys import argv
 
 
 if __name__ == "__main__":
@@ -13,7 +16,6 @@ if __name__ == "__main__":
                 'https://jsonplaceholder.typicode.com/todos/?userId={}'
                 .format(argv[1])).json()
     for tasks in tQuery:
-        num_tasks += 1
         num_tasks += 1
         if tasks.get('completed') is True:
             completed += 1
