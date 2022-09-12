@@ -15,9 +15,8 @@ if __name__ == "__main__":
         userId = user.get("id")
         userDict[userID] = []
         userNameDict[userId] = user.get("username")
-    taskQuery = requests.get("https://jsonplaceholder.typicode.com/todos"
-			).json()
-    for task in taskQuery:
+    tQuery = requests.get("https://jsonplaceholder.typicode.com/todos").json()
+    for task in tQuery:
         taskDict = {}
         userId = task.get("userId")
         taskDict["task"] = task.get('title')
