@@ -4,7 +4,6 @@ script to query an api and store returned information
 in a json file
 """
 import json
-import csv
 import requests
 from sys import argv
 
