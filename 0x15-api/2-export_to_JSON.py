@@ -12,7 +12,7 @@ if __name__ == "__main__":
     user_id = argv[1]
 
     userQuery = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                        .format(user_id)).json()
+                             .format(user_id)).json()
     taskQuery = requests.get(
                 'https://jsonplaceholder.typicode.com/todos/?userId={}'
                 .format(user_id)).json()
