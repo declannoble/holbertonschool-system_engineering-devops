@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""
+script to query reddit api and return top 10 posts
+on given subreddit
+"""
 
-from email import header
 import requests
 
 
