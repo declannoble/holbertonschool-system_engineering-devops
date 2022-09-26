@@ -8,13 +8,14 @@ import requests
 
 def number_of_subscribers(subreddit):
 
-    if subreddit is None or type(subreddit) is not str:
-        return 0
-
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {'User-Agent': 'HolbertonSchoolApiRequests (by /u/declannoble)'}
-    req = requests.get(url, headers=headers).json()
-    data = req.get("data")
+    req = requests.get(url, headers=headers)
+
+    if req.status_code == 404:
+        return 0
+
+    data = req.json().get("data")
     subs = data.get('subscribers')
 
     return (subs)
